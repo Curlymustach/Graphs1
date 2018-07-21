@@ -9,24 +9,25 @@ namespace Graphs
     class Vertex<T> 
     {
         public T Value;
-        List<T> adjacentList;
+        public List<Vertex<T>> AdjacentList;
         int neighbors;
 
         public Vertex(T value)
         {
             this.Value = value;
+            AdjacentList = new List<Vertex<T>>();
         }
 
-        public void updateNeighbors(T value)
+        public void addNeighbors(Vertex<T> v)
         {
-            adjacentList.Add(value);
+            AdjacentList.Add(v);
             neighbors++;
         }
 
-        public void addEdge(Vertex<T> a, Vertex<T> b)
+        public void removeNeighbors(Vertex<T> v)
         {
-            a.updateNeighbors(b.Value);
-            b.updateNeighbors(a.Value);
+            AdjacentList.Remove(v);
+            neighbors--;
         }
     }
 }

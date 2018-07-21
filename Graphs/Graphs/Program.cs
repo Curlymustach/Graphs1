@@ -10,11 +10,32 @@ namespace Graphs
     {
         static void Main(string[] args)
         {
-            Graph<int> graph = new Graph<int>();
+            UnderictedGraph<int> graph = new UnderictedGraph<int>();
+            Vertex<int> a = new Vertex<int>(1);
+            Vertex<int> b = new Vertex<int>(2);
+            Vertex<int> c = new Vertex<int>(3);
+            Vertex<int> d = new Vertex<int>(4);
+            Vertex<int> e = new Vertex<int>(5);
+            Vertex<int> f = new Vertex<int>(6);
+            Vertex<int> g = new Vertex<int>(7);
 
-            graph.AddVertex(5);
-            graph.AddVertex(6);
-            graph.AddEdge()
+            graph.AddVertex(a);
+            graph.AddVertex(b);
+            graph.AddVertex(c);
+            graph.AddVertex(d);
+            graph.AddVertex(e);
+            graph.AddVertex(f);
+            graph.AddEdge(a, b);
+            graph.AddEdge(a, c);
+            graph.AddEdge(a, d);
+            graph.AddEdge(b, e);
+            graph.AddEdge(b, f);
+            graph.AddEdge(c, e);
+            graph.AddEdge(c, f);
+            graph.DepthFirstTraversal(a);
+
+            Console.ReadLine();
+
         }
     }
 }
