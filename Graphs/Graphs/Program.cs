@@ -17,7 +17,6 @@ namespace Graphs
             Vertex<int> d = new Vertex<int>(4);
             Vertex<int> e = new Vertex<int>(5);
             Vertex<int> f = new Vertex<int>(6);
-            Vertex<int> g = new Vertex<int>(7);
 
             graph.AddVertex(a);
             graph.AddVertex(b);
@@ -34,7 +33,16 @@ namespace Graphs
             graph.AddEdge(c, f);
             graph.DepthFirstTraversal(a);
 
-            Console.ReadLine();
+            for(int i = 0; i < graph.dft.Count; i++)
+            {
+                Console.Write(graph.dft[i].Value);
+            }
+            Console.WriteLine("\n");
+            for (int i = 0; i < graph.bft.Count; i++)
+            {
+                Console.Write(graph.bft[i].Value);
+            }
+            Console.ReadKey();
 
         }
     }

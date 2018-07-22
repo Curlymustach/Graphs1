@@ -10,7 +10,8 @@ namespace Graphs
     {
         public T Value;
         public List<Vertex<T>> AdjacentList;
-        int neighbors;
+        public int Neighbors;
+        public bool Visited { get; set; }
 
         public Vertex(T value)
         {
@@ -21,13 +22,13 @@ namespace Graphs
         public void addNeighbors(Vertex<T> v)
         {
             AdjacentList.Add(v);
-            neighbors++;
+            Neighbors++;
         }
 
         public void removeNeighbors(Vertex<T> v)
         {
             AdjacentList.Remove(v);
-            neighbors--;
+            Neighbors--;
         }
     }
 }
