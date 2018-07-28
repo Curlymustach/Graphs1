@@ -41,10 +41,17 @@ namespace Graphs
             graph.BreadthFirstTraversal(a);
             for (int i = 0; i < graph.bft.Count; i++)
             {
-                Console.Write(graph.bft[i].Value);
+                Console.Write($"{graph.bft[i].Value} ");
+            }
+            Console.WriteLine();
+            graph.RemoveVertex(c);
+
+            graph.BreadthFirstTraversal(a);
+            for (int i = 0; i < graph.bft.Count; i++)
+            {
+                Console.Write($"{graph.bft[i].Value} ");
             }
 
-            graph.RemoveVertex(a);
             Console.ReadKey();
 
         }
