@@ -31,17 +31,20 @@ namespace Graphs
             graph.AddEdge(b, f);
             graph.AddEdge(c, e);
             graph.AddEdge(c, f);
-            graph.DepthFirstTraversal(a);
+            //graph.DepthFirstTraversal(a);
 
-            for(int i = 0; i < graph.dft.Count; i++)
-            {
-                Console.Write(graph.dft[i].Value);
-            }
-            Console.WriteLine("\n");
+            //for(int i = 0; i < graph.dft.Count; i++)
+            //{
+            //    Console.Write(graph.dft[i].Value);
+            //}
+            
+            graph.BreadthFirstTraversal(a);
             for (int i = 0; i < graph.bft.Count; i++)
             {
                 Console.Write(graph.bft[i].Value);
             }
+
+            graph.RemoveVertex(a);
             Console.ReadKey();
 
         }

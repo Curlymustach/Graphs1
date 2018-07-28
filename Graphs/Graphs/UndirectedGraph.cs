@@ -8,39 +8,42 @@ namespace Graphs
 {
     class UnderictedGraph<T>
     {
-        List<Vertex<T>>[] adj;
+        List<List<Vertex<T>>> adj;
         List<Vertex<T>> vertices;
+
         public List<Vertex<T>> dft;
         public List<Vertex<T>> bft;
         int count;
         public UnderictedGraph() : this(10) {}
         public UnderictedGraph(int size)
         {
-            adj = new List<Vertex<T>>[size];
+            adj = new List<List<Vertex<T>>>();
             dft = new List<Vertex<T>>();
             bft = new List<Vertex<T>>();
             vertices = new List<Vertex<T>>();
-            for (int i = 0; i < adj.Length; i++)
-            {
-                adj[i] = new List<Vertex<T>>();
-            }
             count = 0;
         }
 
         public void AddVertex(Vertex<T> vertex)
         {
             vertices.Add(vertex);
-            adj[count] = vertex.AdjacentList;
+            adj.Add(vertex.AdjacentList);
             count++;
-            if(count == adj.Length)
-            {
-                Update();
-            }
         }
 
         public void RemoveVertex(Vertex<T> vertex)
         {
-
+            for(int i = 0; i < vertices.Count; i++)
+            {
+                for(int j = 0; j < vertices[i].AdjacentList.Count; j++)
+                {
+                    if(vertices[i].AdjacentList[j].Equals(vertex))
+                    {
+                        vertices[i].AdjacentList.RemoveAt(j);
+                        j--;
+                    }
+                }
+            }
         }
 
         public void AddEdge(Vertex<T> a, Vertex<T> b)
@@ -70,37 +73,32 @@ namespace Graphs
 
         public void BreadthFirstTraversal(Vertex<T> node)
         {
-            for(int i = 0; i < vertices.Count; i++) { vertices[i].Visited = false; };
-            LinkedList<Vertex<T>> queue = new LinkedList<Vertex<T>>();
+            for (int i = 0; i < vertices.Count; i++) { vertices[i].Visited = false; };
+            Queue<Vertex<T>> queue = new Queue<Vertex<T>>();
+            node.Visited = true;
+            bft.Add(node);
             for(int i = 0; i < node.AdjacentList.Count; i++)
             {
-                queue.AddLast(node.AdjacentList[i]);
+                node.AdjacentList[i].Visited = true;
+                queue.Enqueue(node.AdjacentList[i]);
             }
-            while(queue.Count != 0)
+            while (queue.Count != 0)
             {
-                queue.First.Value.Visited = true;
-                for(int i = 0; i < queue.First.Value.AdjacentList.Count; i++)
+                List<Vertex<T>> temp = new List<Vertex<T>>();
+                temp = queue.Peek().AdjacentList;
+                bft.Add(queue.Peek());
+                queue.Dequeue();
+                for(int i = 0; i < temp.Count; i++)
                 {
-                    if(queue.First.Value.Visited == false)
+                    if(!temp[i].Visited)
                     {
-                        queue.AddLast(queue.First.Value.AdjacentList[i]);
+                        temp[i].Visited = true;
+                        queue.Enqueue(temp[i]);
                     }
                 }
-                bft.Add(queue.First.Value);
-                queue.RemoveFirst();
-
             }
-
+            for (int i = 0; i < vertices.Count; i++) { vertices[i].Visited = false; };
         }
 
-        public void Update()
-        {
-            List<Vertex<T>>[] temp = new List<Vertex<T>>[adj.Length * 2];
-            for(int i = 0; i < adj.Length; i++)
-            {
-                temp[i] = adj[i];
-            }
-            adj = temp;
-        }
     }
 }

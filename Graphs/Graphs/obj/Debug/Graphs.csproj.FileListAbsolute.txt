@@ -5,3 +5,10 @@ C:\Users\Meghana Sagare\Documents\Github\Graphs\Graphs\Graphs\obj\Debug\Graphs.c
 C:\Users\Meghana Sagare\Documents\Github\Graphs\Graphs\Graphs\obj\Debug\Graphs.csproj.CoreCompileInputs.cache
 C:\Users\Meghana Sagare\Documents\Github\Graphs\Graphs\Graphs\obj\Debug\Graphs.exe
 C:\Users\Meghana Sagare\Documents\Github\Graphs\Graphs\Graphs\obj\Debug\Graphs.pdb
+C:\Users\MeghanaSagare\Documents\Github\Graphs1\Graphs\Graphs\bin\Debug\Graphs.exe.config
+C:\Users\MeghanaSagare\Documents\Github\Graphs1\Graphs\Graphs\bin\Debug\Graphs.exe
+C:\Users\MeghanaSagare\Documents\Github\Graphs1\Graphs\Graphs\bin\Debug\Graphs.pdb
+C:\Users\MeghanaSagare\Documents\Github\Graphs1\Graphs\Graphs\obj\Debug\Graphs.csprojAssemblyReference.cache
+C:\Users\MeghanaSagare\Documents\Github\Graphs1\Graphs\Graphs\obj\Debug\Graphs.csproj.CoreCompileInputs.cache
+C:\Users\MeghanaSagare\Documents\Github\Graphs1\Graphs\Graphs\obj\Debug\Graphs.exe
+C:\Users\MeghanaSagare\Documents\Github\Graphs1\Graphs\Graphs\obj\Debug\Graphs.pdb
