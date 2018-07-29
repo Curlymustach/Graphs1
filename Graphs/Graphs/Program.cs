@@ -38,19 +38,61 @@ namespace Graphs
             //    Console.Write(graph.dft[i].Value);
             //}
             
-            graph.BreadthFirstTraversal(a);
-            for (int i = 0; i < graph.bft.Count; i++)
+            //graph.BreadthFirstTraversal(a);
+            //for (int i = 0; i < graph.bft.Count; i++)
+            //{
+            //    Console.Write($"{graph.bft[i].Value} ");
+            //}
+            //Console.WriteLine();
+            //graph.RemoveVertex(c);
+
+            //graph.BreadthFirstTraversal(a);
+            //for (int i = 0; i < graph.bft.Count; i++)
+            //{
+            //    Console.WriteLine($"{graph.bft[i].Value} ");
+            //}
+
+
+
+            DirectedGraph<int> dgraph = new DirectedGraph<int>();
+            Vertex<int> g = new Vertex<int>(1);
+            Vertex<int> h = new Vertex<int>(2);
+            Vertex<int> ii = new Vertex<int>(3);
+            Vertex<int> j = new Vertex<int>(4);
+            Vertex<int> k = new Vertex<int>(5);
+            Vertex<int> l = new Vertex<int>(6);
+
+            dgraph.AddVertex(g);
+            dgraph.AddVertex(h);
+            dgraph.AddVertex(ii);
+            dgraph.AddVertex(j);
+            dgraph.AddVertex(k);
+            dgraph.AddVertex(l);
+            dgraph.AddEdge(g, h, 5);
+            dgraph.AddEdge(h, g, 6);
+            dgraph.AddEdge(g, ii, 3);
+            dgraph.AddEdge(g, j, 2);
+            dgraph.AddEdge(h, k, 7);
+            dgraph.AddEdge(h, l, 1);
+            dgraph.AddEdge(ii, k, 2);
+            dgraph.AddEdge(ii, l, 3);
+            dgraph.DepthFirstTraversal(h);
+            for (int i = 0; i < dgraph.dft.Count; i++)
             {
-                Console.Write($"{graph.bft[i].Value} ");
+                Console.Write($"{dgraph.dft[i].Value} ");
             }
             Console.WriteLine();
-            graph.RemoveVertex(c);
+            Console.WriteLine(dgraph.Dft + "\n");
 
-            graph.BreadthFirstTraversal(a);
-            for (int i = 0; i < graph.bft.Count; i++)
+            dgraph.BreadthFirstTraversal(h);
+            for (int i = 0; i < dgraph.bft.Count; i++)
             {
-                Console.Write($"{graph.bft[i].Value} ");
+                Console.Write($"{dgraph.bft[i].Value} ");
             }
+            Console.WriteLine();
+            Console.WriteLine(dgraph.Bft);
+
+
 
             Console.ReadKey();
 

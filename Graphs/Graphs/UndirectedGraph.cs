@@ -12,7 +12,7 @@ namespace Graphs
 
         public List<Vertex<T>> dft;
         public List<Vertex<T>> bft;
-        int count { get { return vertices.Count; } }
+        int Count { get { return vertices.Count; } }
         public UnderictedGraph() : this(10) {}
         public UnderictedGraph(int size)
         {
@@ -42,15 +42,15 @@ namespace Graphs
 
         public void AddEdge(Vertex<T> a, Vertex<T> b)
         {
-            a.addNeighbors(b);
-            b.addNeighbors(a);
+            b.AddNeighbors(a);
+            a.AddNeighbors(b);
         }
 
         public bool RemoveEdge(Vertex<T> a, Vertex<T> b)
         {
             if (!(a.AdjacentList.Contains(b) && b.AdjacentList.Contains(a))) return false;
-            a.removeNeighbors(b);
-            b.removeNeighbors(a);
+            a.RemoveNeighbors(b);
+            b.RemoveNeighbors(a);
             return true;
         }
 
@@ -67,7 +67,7 @@ namespace Graphs
             }
         }
 
-        public void BreadthFirstTraversal(Vertex<T> node) // make it recursive next time -__-
+        public void BreadthFirstTraversal(Vertex<T> node) 
         {
             for (int i = 0; i < vertices.Count; i++) { vertices[i].Visited = false; };
             bft.Clear(); 

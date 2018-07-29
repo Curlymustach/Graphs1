@@ -8,15 +8,16 @@ namespace Graphs
 {
     class Edge<T>
     {
-        Vertex<T> start;
-        Vertex<T> end;
-        double weight;
+        public Vertex<T> Start;
+        public Vertex<T> End;
+        public double Weight;
+        public bool Visited { get; set; }
 
         public Edge(Vertex<T> start, Vertex<T> end, double weight)
         {
-            this.start = start;
-            this.end = end;
-            this.weight = weight;
+            Start = start;
+            End = end;
+            Weight = weight;
         }
     }
 }

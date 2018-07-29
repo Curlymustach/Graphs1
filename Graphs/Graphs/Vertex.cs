@@ -10,22 +10,33 @@ namespace Graphs
     {
         public T Value;
         public List<Vertex<T>> AdjacentList;
+        public List<Edge<T>> EdgeList;
         public bool Visited { get; set; }
-        int inDegree;
-        int outDegree;
+        public int InDegree { get; set; }
+        public int OutDegree { get; set; }
 
         public Vertex(T value)
         {
             this.Value = value;
             AdjacentList = new List<Vertex<T>>();
+            EdgeList = new List<Edge<T>>();
         }
 
-        public void addNeighbors(Vertex<T> v)
+        public void AddEdge(Edge<T> e)
+        {
+            EdgeList.Add(e);
+        }
+
+        public void AddNeighbors(Vertex<T> v)
         {
             AdjacentList.Add(v);
         }
-
-        public void removeNeighbors(Vertex<T> v)
+        public void AddNeighbors(Vertex<T> v, Edge<T> e)
+        {
+            AdjacentList.Add(v);
+            EdgeList.Add(e);
+        }
+        public void RemoveNeighbors(Vertex<T> v)
         {
             AdjacentList.Remove(v);
         }
