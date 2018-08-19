@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace Graphs
 {
-    class Vertex<T> 
+    class Vertex<T> : IComparable<Vertex<T>> where T : IComparable<T>
     {
         public T Value;
         public List<Vertex<T>> AdjacentList;
         public List<Edge<T>> EdgeList;
         public bool Visited { get; set; }
-        public int InDegree { get; set; }
-        public int OutDegree { get; set; }
+        //dijkstra
+        public double Distance { get; set; }
+        public Vertex<T> Founder { get; set; }
 
         public Vertex(T value)
         {
@@ -39,6 +40,11 @@ namespace Graphs
         public void RemoveNeighbors(Vertex<T> v)
         {
             AdjacentList.Remove(v);
+        }
+
+        public int CompareTo(Vertex<T> other)
+        {
+            return Value.CompareTo(other.Value);
         }
     }
 }

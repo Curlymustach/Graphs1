@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Graphs
 {
-    class Edge<T>
+    class Edge<T> where T : IComparable<T>
     {
         public Vertex<T> Start;
         public Vertex<T> End;

@@ -76,24 +76,24 @@ namespace Graphs
             dgraph.AddEdge(h, l, 1);
             dgraph.AddEdge(ii, k, 2);
             dgraph.AddEdge(ii, l, 3);
-            dgraph.DepthFirstTraversal(h);
-            for (int i = 0; i < dgraph.dft.Count; i++)
-            {
-                Console.Write($"{dgraph.dft[i].Value} ");
-            }
-            Console.WriteLine();
-            Console.WriteLine(dgraph.Dft + "\n");
 
-            dgraph.BreadthFirstTraversal(h);
-            for (int i = 0; i < dgraph.bft.Count; i++)
-            {
-                Console.Write($"{dgraph.bft[i].Value} ");
-            }
-            Console.WriteLine();
-            Console.WriteLine(dgraph.Bft);
+            //dgraph.DepthFirstTraversal(h);
+            //for (int i = 0; i < dgraph.dft.Count; i++)
+            //{
+            //    Console.Write($"{dgraph.dft[i].Value} ");
+            //}
+            //Console.WriteLine();
+            //Console.WriteLine(dgraph.Dft + "\n");
 
+            //dgraph.BreadthFirstTraversal(h);
+            //for (int i = 0; i < dgraph.bft.Count; i++)
+            //{
+            //    Console.Write($"{dgraph.bft[i].Value} ");
+            //}
+            //Console.WriteLine();
+            //Console.WriteLine(dgraph.Bft);
 
-
+            dgraph.Dijkstra(h);
             Console.ReadKey();
 
         }

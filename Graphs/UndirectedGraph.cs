@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Graphs
 {
-    class UnderictedGraph<T>
+    class UnderictedGraph<T> where T : IComparable<T>
     {
         List<Vertex<T>> vertices;
 
         public List<Vertex<T>> dft;
         public List<Vertex<T>> bft;
         int Count { get { return vertices.Count; } }
-        public UnderictedGraph() : this(10) {}
+        public UnderictedGraph() : this(10) { }
         public UnderictedGraph(int size)
         {
             dft = new List<Vertex<T>>();
@@ -23,8 +23,8 @@ namespace Graphs
 
         public void AddVertex(Vertex<T> vertex)
         {
-            if(!vertices.Contains(vertex))
-            vertices.Add(vertex);
+            if (!vertices.Contains(vertex))
+                vertices.Add(vertex);
         }
 
         public bool RemoveVertex(Vertex<T> vertex)
@@ -59,7 +59,7 @@ namespace Graphs
             node.Visited = true;
             dft.Add(node);
             for (int i = 0; i < node.AdjacentList.Count; i++)
-            { 
+            {
                 if (node.AdjacentList[i].Visited == false)
                 {
                     DepthFirstTraversal(node.AdjacentList[i]);
@@ -67,27 +67,23 @@ namespace Graphs
             }
         }
 
-        public void BreadthFirstTraversal(Vertex<T> node) 
+        public void BreadthFirstTraversal(Vertex<T> node)
         {
             for (int i = 0; i < vertices.Count; i++) { vertices[i].Visited = false; };
-            bft.Clear(); 
+            bft.Clear();
             Queue<Vertex<T>> queue = new Queue<Vertex<T>>();
             node.Visited = true;
+            queue.Enqueue(node);
             bft.Add(node);
-            for(int i = 0; i < node.AdjacentList.Count; i++)
-            {
-                node.AdjacentList[i].Visited = true;
-                queue.Enqueue(node.AdjacentList[i]);
-            }
+
             while (queue.Count != 0)
             {
-                List<Vertex<T>> temp = new List<Vertex<T>>();
-                temp = queue.Peek().AdjacentList;
+                List<Vertex<T>> temp = queue.Peek().AdjacentList;
                 bft.Add(queue.Peek());
                 queue.Dequeue();
-                for(int i = 0; i < temp.Count; i++)
+                for (int i = 0; i < temp.Count; i++)
                 {
-                    if(!temp[i].Visited)
+                    if (!temp[i].Visited)
                     {
                         temp[i].Visited = true;
                         queue.Enqueue(temp[i]);
